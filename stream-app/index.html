@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamCinema</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo" onclick="fetchPopular()">STREAMCINEMA</div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search movies or series..." oninput="handleSearch()">
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="section-title" id="gridTitle">Popular Content</h2>
+        <div class="movie-grid" id="movieGrid"></div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-body">
+            <span class="close-btn" onclick="closeStream()">&times;</span>
+            <div class="player-wrapper">
+                <iframe id="streamFrame" src="" allowfullscreen></iframe>
+            </div>
+            
+            <div class="controls-panel">
+                <div class="selectors" id="tvControls" style="display: none;">
+                    <label>Season: <select id="seasonSelect" onchange="onSeasonChange()"></select></label>
+                    <label>Episode: <select id="episodeSelect" onchange="onEpisodeChange()"></select></label>
+                </div>
+
+                <div class="selectors">
+                    <strong style="color: var(--text-muted);">Server:</strong>
+                    <button class="source-btn" onclick="changeServer(1)">Server 1 (VidSrc)</button>
+                    <button class="source-btn" onclick="changeServer(2)">Server 2 (Embed.su)</button>
+                    <button class="source-btn" onclick="changeServer(3)">Server 3 (2Embed)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript File Import -->
+    <script src="js/app.js"></script>
+</body>
+</html>
